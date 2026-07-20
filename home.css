@@ -1200,7 +1200,22 @@ tr.expanded-row .solution-arrow { transform: rotate(180deg); }
 
 /* ── Modal ───────────────────────────────────────────────────────────────── */
 
-#view-rea .modal-overlay {
+/* #view-rea .modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(57, 48, 45, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+} */
+
+/* #view-rea .modal-overlay.open { display: flex; } */
+
+/* REA modal — lives outside #view-rea so needs its own unscoped rules */
+#reaModalOverlay {
   display: none;
   position: fixed;
   inset: 0;
@@ -1212,7 +1227,131 @@ tr.expanded-row .solution-arrow { transform: rotate(180deg); }
   padding: 24px;
 }
 
-#view-rea .modal-overlay.open { display: flex; }
+#reaModalOverlay.open { display: flex; }
+
+#reaModalOverlay .modal {
+  background: #fff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 620px;
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px rgba(57, 48, 45, 0.2);
+  animation: reaModalIn .25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes reaModalIn {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+#reaModalOverlay .modal-header {
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid rgba(57, 48, 45, 0.08);
+  flex-shrink: 0;
+}
+
+#reaModalOverlay .modal-header-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+#reaModalOverlay .modal-title {
+  font-size: 19px;
+  font-weight: bold;
+  color: var(--txt-major);
+  line-height: 1.3;
+}
+
+#reaModalOverlay .modal-close {
+  background: none;
+  border: none;
+  font-size: 22px;
+  color: var(--txt-minor);
+  cursor: pointer;
+  padding: 2px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+#reaModalOverlay .modal-close:hover { color: var(--txt-major); }
+
+#reaModalOverlay .modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+#reaModalOverlay .modal-meta-item {
+  font-size: 12px;
+  color: var(--txt-minor);
+}
+
+#reaModalOverlay .modal-meta-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--txt-minor);
+}
+
+#reaModalOverlay .modal-body {
+  padding: 22px 28px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+#reaModalOverlay .modal-section { margin-bottom: 22px; }
+#reaModalOverlay .modal-section:last-child { margin-bottom: 0; }
+
+#reaModalOverlay .modal-section-label {
+  font-size: 10.5px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--txt-minor);
+  margin-bottom: 8px;
+}
+
+#reaModalOverlay .modal-section p {
+  font-size: 14px;
+  color: var(--txt-major);
+  line-height: 1.65;
+}
+
+#reaModalOverlay .modal-feedback {
+  background: rgba(58, 179, 229, 0.06);
+  border-left: 3px solid var(--med);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--txt-major);
+  line-height: 1.65;
+}
+
+#reaModalOverlay .modal-feedback.no-feedback {
+  background: #FAF8F5;
+  border-left-color: rgba(57, 48, 45, 0.1);
+  color: var(--txt-minor);
+  font-style: italic;
+}
+
+#reaModalOverlay .modal-footer {
+  padding: 16px 28px;
+  border-top: 1px solid rgba(57, 48, 45, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+#reaModalOverlay .modal-date { font-size: 12px; color: var(--txt-minor); }
+#reaModalOverlay .modal-id   { font-size: 12px; font-weight: bold; color: var(--txt-minor); }
+
 
 #view-rea .modal {
   background: #fff;
