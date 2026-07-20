@@ -116,6 +116,8 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeDivisionModal();
 });
 
+
+window.refreshAll = refreshAll;
 // ---------------------------------------------------------------------------
 // Boot
 // ---------------------------------------------------------------------------
