@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build artifacts
+dist/
+build/
+.venv/
+
+# Test files
+**/*.test.js
+**/*.spec.js
+
+# CDN scripts loaded externally (not your code)
+static/js/vendor/
+
+# Config files with no executable logic
+staticwebapp.config.json

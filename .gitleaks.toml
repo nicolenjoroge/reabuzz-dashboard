@@ -1,0 +1,18 @@
+title = "REA Buzz Dashboard — Gitleaks config"
+
+[allowlist]
+  description = "Known safe patterns — suppress false positives"
+
+  # Base64-encoded logo in CSS files
+  paths = [
+    '''static/home\.css''',
+    '''static/rea\.css''',
+  ]
+
+  # Suppress hits on placeholder/example values
+  regexes = [
+    '''your-cosmos-account''',
+    '''your-database-name''',
+    '''your-container-name''',
+    '''localhost:5000''',
+  ]
